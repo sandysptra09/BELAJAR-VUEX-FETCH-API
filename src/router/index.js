@@ -5,12 +5,11 @@ import HomeView from '../views/HomeView.vue'
 import ProductsViews from '../views/ProductsView.vue'
 import SingleProduct from '../views/SingleProduct.vue'
 import CategoryView from '../views/CategoryView.vue'
+import LoginView from '../views/LoginView.vue'
 
 import ContactView from '../views/ContactView.vue'
 
-const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
+const routes = [
     {
       path: '/',
       name: 'products',
@@ -49,7 +48,20 @@ const router = createRouter({
       name: 'Contact',
       component: ContactView
     },
-  ]
-})
+    {
+      path: "/login",
+      name: "Login",
+      component: LoginView,
+      meta: { requiresGuest: true },
+    },
+]
+
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
+});
+
+
 
 export default router

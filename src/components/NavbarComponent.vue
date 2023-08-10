@@ -63,13 +63,33 @@
                             class=""></path>
                     </svg>
                 </a>
-                <ModalLoginComponent/>
+                <div v-if="isAuthenticated" class="flex md:order-2">
+                    <button @click="logout" type="button"
+                        class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-green-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Logout
+                    </button>
+                </div>
+                <div v-else class="flex md:order-2">
+                    <router-link to="/login" type="button"
+                        class="text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-4 py-2 text-center mr-3 md:mr-0 dark:bg-green-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        Login
+                    </router-link>
+                </div>
             </div>
         </header>
     </div>
 </template>
 
-<script setup>
-import ModalLoginComponent from './ModalLoginComponent.vue'
+<script>
+import { mapActions, mapGetters } from 'vuex';
+
+export default {
+    computed: {
+        ...mapGetters('auth', ['isAuthenticated']),
+    },
+    methods: {
+        ...mapActions('auth', ['logout']),
+    },
+};
 
 </script>
