@@ -35,7 +35,7 @@ const auth = {
         commit("SET_TOKEN", "");
         // Log token removed
         console.log("Token removed:", token);
-        window.location.href = "/login";
+        window.location.href = "/login";  
       },
   },
   mutations: {

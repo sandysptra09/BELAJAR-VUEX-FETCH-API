@@ -2,10 +2,11 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 
 
-import ProductsViews from '../views/ProductsView.vue'
-import SingleProduct from '../views/SingleProduct.vue'
-import CategoryView from '../views/CategoryView.vue'
-import LoginView from '../views/LoginView.vue'
+import ProductsViews from '../views/ProductsView.vue';
+import SingleProduct from '../views/SingleProduct.vue';
+import CategoryView from '../views/CategoryView.vue';
+import LoginView from '../views/LoginView.vue';
+import CategoryDetail from '../views/CategoryDetail.vue';
 
 import ContactView from '../views/ContactView.vue'
 
@@ -26,7 +27,8 @@ const routes = [
     {
       path: '/products',
       name: 'Products',
-      component: ProductsViews
+      component: ProductsViews,
+      props: true
     },
     {
       path: "/product/:id",
@@ -37,6 +39,12 @@ const routes = [
       path: '/category',
       name: 'Category',
       component: CategoryView
+    },
+    {
+      path: '/category/:category_nama',
+      name: 'CategoryDetail',
+      component: CategoryDetail,
+      props : true
     },
     {
       path: '/collection',
